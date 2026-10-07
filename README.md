@@ -6,21 +6,21 @@
 
 ## Установка
 
-Пока стабильный релиз не опубликован, установка из `main`:
-
 ```sh
-brew install --HEAD leadfact/format-fast/formatfast
+brew install leadfact/format-fast/formatfast
+formatfast --version
 formatfast '{"message":"hello\nworld"}' --extract message
 ```
 
 Homebrew автоматически подключает этот репозиторий. Отдельный `brew tap` не нужен.
-HEAD-формула собирает исходники; Homebrew установит Go как зависимость сборки.
+Формула устанавливает стабильный релиз `0.3.0`: готовый бинарник для macOS/Linux
+на arm64/amd64 с проверкой SHA-256. Go для установки не требуется.
 
-Обновление HEAD-версии:
+Обновление установленной версии:
 
 ```sh
 brew update
-brew upgrade --fetch-HEAD leadfact/format-fast/formatfast
+brew upgrade leadfact/format-fast/formatfast
 ```
 
 Если ранее tap был подключён к основному репозиторию через явный URL,
@@ -31,17 +31,12 @@ brew tap --custom-remote leadfact/format-fast https://github.com/leadfact/homebr
 brew update
 ```
 
-## Стабильные версии
-
-После публикации стабильного релиза и обновления формулы установка будет такой:
+Если уже установлена HEAD-версия, для перехода на стабильную:
 
 ```sh
+brew uninstall leadfact/format-fast/formatfast
 brew install leadfact/format-fast/formatfast
 ```
-
-Стабильная формула установит готовый бинарник для macOS/Linux на arm64/amd64.
-Для перехода с установленной HEAD-версии сначала удали её командой
-`brew uninstall leadfact/format-fast/formatfast`, затем выполни установку выше.
 
 ## Обновление формулы сопровождающим
 
